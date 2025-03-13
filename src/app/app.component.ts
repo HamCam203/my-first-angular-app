@@ -22,5 +22,6 @@ export class AppComponent implements OnInit {
       new Date(),
       0
     );
+    this.mySnap.setlocation('à la montagne');
   }
 }
