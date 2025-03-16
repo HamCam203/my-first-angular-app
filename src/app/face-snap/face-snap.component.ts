@@ -1,40 +1,50 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { FaceSnap } from '../models/face-snap';
-import { DatePipe, NgClass, NgStyle, TitleCasePipe } from '@angular/common';
+import { CommonModule, DatePipe, DecimalPipe, NgClass, NgStyle, TitleCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-face-snap',
   standalone: true,
-  imports: [NgStyle, NgClass,TitleCasePipe,DatePipe],
+  imports: [NgStyle, NgClass, TitleCasePipe, DatePipe, DecimalPipe, CommonModule],
   templateUrl: './face-snap.component.html',
-  styleUrl: './face-snap.component.scss'
+  styleUrls: ['./face-snap.component.scss']
 })
 export class FaceSnapComponent implements OnInit {
-  snapButtonText! : string;
-  userHasSnapped! : boolean; // permet de savoir si l'utilisateur à déjà snapper l'image
+  
   @Input() faceSnap!: FaceSnap;
+  @Input() allFaceSnaps!: FaceSnap[];
+  @Input() averageSnaps!: number;
+  @Output() snapUpdated = new EventEmitter<void>();
 
-  ngOnInit() { // Permet d'initialiser les propriétés
+  snapButtonText!: string;
+  userHasSnapped!: boolean;
+
+  ngOnInit() {
     this.snapButtonText = "Oh Snap!";
-
   }
+
   onSnap(): void {
     if (this.userHasSnapped) {
-      this.unSnap();
+      this.faceSnap.removeSnap();
+      this.snapButtonText = 'Oh Snap!';
+      this.userHasSnapped = false;
     } else {
-      this.snap();
-    }
-  }
-
-  unSnap() {
-    this.faceSnap.removeSnap();
-    this.snapButtonText = 'Oh Snap!';
-    this.userHasSnapped = false;
-  }
-
-  snap() {
       this.faceSnap.addSnap();
       this.snapButtonText = 'Oops, unSnap!';
       this.userHasSnapped = true;
+    }
+    
+    this.snapUpdated.emit(); // Émettre l'événement pour recalculer la moyenne
+  }
+
+  isAboveAverage(snaps: number): boolean {
+    return snaps > this.averageSnaps;
+  }
+  isEqualAverage(snaps: number): boolean {
+    return snaps === this.averageSnaps;
+  }
+
+  isBelowAverage(snaps: number): boolean {
+    return snaps < this.averageSnaps;
   }
 }

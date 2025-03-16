@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FaceSnapComponent } from './face-snap/face-snap.component';
 import { FaceSnap } from './models/face-snap';
+import { DecimalPipe } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
-    FaceSnapComponent
+    FaceSnapComponent,DecimalPipe
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
@@ -14,6 +15,7 @@ import { FaceSnap } from './models/face-snap';
 export class AppComponent implements OnInit {
 
   faceSnaps!: FaceSnap[];
+  averageSnaps: number = 0;
 
   ngOnInit(): void {
     this.faceSnaps = [
@@ -107,11 +109,81 @@ export class AppComponent implements OnInit {
         'https://tse1.mm.bing.net/th?id=OIP.tzyuq4EzG7wLDlR3nv-QigHaDq&pid=Api',
         new Date(),
         150
+      ),
+      new FaceSnap(
+        'Cascade secrète',
+        'Un endroit caché au milieu de la jungle.',
+        'https://tse3.mm.bing.net/th?id=OIP.LQbN9QJd8GnN3pHOVJGzNAHaEo&pid=Api',
+        new Date(),
+        95
+      ),
+      new FaceSnap(
+        'Chemin de randonnée',
+        'Un sentier paisible en pleine nature.',
+        'https://cdn.pixabay.com/photo/2015/06/19/21/24/avenue-815297_1280.jpg',
+        new Date(),
+        40
+      ),
+      new FaceSnap(
+        'Dunes du désert',
+        'Un paysage doré à perte de vue.',
+        'https://tse2.mm.bing.net/th?id=OIP.3g6T_MR9xLXpl7Q6j7VCZgHaEo&pid=Api',
+        new Date(),
+        55
+      ),
+      new FaceSnap(
+        'Village enneigé',
+        'Un décor hivernal digne d’un conte de fées.',
+        'https://tse1.mm.bing.net/th?id=OIP.c-TiQEV7WY7lTtdt-5T9WQHaEo&pid=Api',
+        new Date(),
+        110
+      ),
+      new FaceSnap(
+        'Voilier en mer',
+        'Naviguer sur des eaux calmes.',
+        'https://tse4.mm.bing.net/th?id=OIP.lMcO5mYScReSwX9E-TPQogHaEo&pid=Api',
+        new Date(),
+        80
+      ),
+      new FaceSnap(
+        'Lac miroir',
+        'Un lac si calme qu’il reflète le ciel.',
+        'https://tse3.mm.bing.net/th?id=OIP.5uQiwSEUoFykh6SpuERxGAHaEK&pid=Api',
+        new Date(),
+        65
+      ),
+      new FaceSnap(
+        'Cabane dans les arbres',
+        'Un refuge parfait en pleine nature.',
+        'https://tse2.mm.bing.net/th?id=OIP.A8qTmsjRTz3dXyxqzF1YrwHaE8&pid=Api',
+        new Date(),
+        105
       )
     ];
-
+  
     this.faceSnaps[1].setLocation('à la montagne');
     this.faceSnaps[5].setLocation('au sommet');
     this.faceSnaps[6].setLocation('dans la forêt');
+    this.faceSnaps[14].setLocation('près de la cascade');
+    this.faceSnaps[17].setLocation('dans le désert');
+    this.faceSnaps[19].setLocation('sur un lac');
+
+    this.calculateAverageSnaps();
   }
+
+
+    // Calculer la moyenne des snaps
+    calculateAverageSnaps(): void {
+      if (this.faceSnaps.length > 0) {
+        const totalSnaps = this.faceSnaps.reduce((total, snap) => total + snap.snaps, 0);
+        this.averageSnaps = totalSnaps / this.faceSnaps.length;
+      } else {
+        this.averageSnaps = 0;
+      }
+    }
+  
+    // Mettre à jour la moyenne après un like/unlike
+    onSnapUpdated(): void {
+      this.calculateAverageSnaps();
+    }
 }
