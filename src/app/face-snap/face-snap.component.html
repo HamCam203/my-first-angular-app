@@ -1,9 +1,9 @@
 <div class="face-snap-card" [ngClass]="{ 'snapped': userHasSnapped }">
-    <h2>{{ faceSnap.title }}</h2>
+    <h2>{{ faceSnap.title | titlecase }}</h2>
     @if(faceSnap.location) {
       <p>📍 {{ faceSnap.location }}</p>
     }@else{
-      <p>📍 Inconnu</p>
+      <p>📍 Localisation non indiquée</p>
     }
 
     <img [src]="faceSnap.imageUrl" [alt]="faceSnap.title">
