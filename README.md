@@ -1,7 +1,30 @@
-# MyFirstAngularApp
+# FaceSnap 📸💚 - Angular Project
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.0.
+## 📝 Description
+FaceSnap is an Angular application that allows users to discover, like, and explore a gallery of photos called "FaceSnaps". Each FaceSnap can be liked, and the application displays the number of likes for each photo. The main goal of the project is to understand the interaction with dynamic data in an Angular environment.
 
+## Features
+
+- **Display of FaceSnaps**: Users can view different photos (FaceSnaps) along with titles and descriptions.
+- **Interaction with photos**: Users can like a photo by clicking a button.
+- **Highlighting liked Snaps**: When a Snap is liked, a special visual style is applied to highlight the interaction.
+- **Responsiveness and animations**: The interface is responsive and includes animations to make the experience smoother.
+
+## 📦 Technologies Used
+
+- **Angular**: The main framework used for the application development.
+- **TypeScript**: Programming language used for the project.
+- **CSS/SCSS**: Custom styles for a visually appealing interface.
+- **RxJS**: Used to manage data reactivity.
+
+## 🛠️ Prerequisites
+
+Before starting, make sure you have the following tools installed on your machine:
+
+- **Node.js** (version 14 or higher)
+- **npm** (Node package manager)
+
+  
 ## Development server
 
 To start a local development server, run:
