@@ -45,4 +45,32 @@
   transform: scale(1.05);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+.snapped {
+  background-color: rgba(144, 238, 144, 0.4); /* LightGreen */
+  color: darkgreen;
+  border: 2px solid lightgreen; /* Bordure verte pour renforcer l'effet */
+  border-radius: 10px; /* Pour des bords arrondis */
+  box-shadow: 0 0 15px rgba(144, 238, 144, 0.6); /* Effet de halo autour */
+  transition: all 0.3s ease-in-out;
 
+  button {
+    background-color: darkgreen;
+    color: white;
+    border-radius: 5px;
+    padding: 8px 16px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 3px 3px 7px lightgreen;
+    &:hover {
+      background-color: lightgreen;
+      color: darkgreen;
+      box-shadow: 0 0 15px lightgreen;
+    }
+    &:active {
+      box-shadow: 0 0 5px lightgreen;
+    }
+  }
+
+  &:hover {
+    transform: scale(1.05); /* Agrandir légèrement lors du survol */
+  }
+}
