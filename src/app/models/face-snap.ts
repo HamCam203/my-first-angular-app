@@ -19,4 +19,10 @@ export class FaceSnap {
       this.location = location;
     }
 
+
+    withLocation(location: string): FaceSnap { // fonction utiliser dans le service pour ajouter un lieu à une photo
+      this.setLocation(location);
+      return this;
+    }
+
 }
