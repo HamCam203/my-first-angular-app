@@ -9,7 +9,7 @@ export class FaceSnap {
                 public imageUrl: string,
                 public createdAt: Date,
                 public snaps: number) {
-                  this.id = crypto.randomUUID();
+                  this.id = crypto.randomUUID().substring(0, 8);
                 }
   
     addSnap(): void {

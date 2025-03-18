@@ -1,4 +1,5 @@
 <div class="face-snap-card" [ngClass]="{ 'snapped': userHasSnapped }">
+  <button routerLink="/facesnaps" class="btn">BACK</button>
     <h2>{{ faceSnap.title | titlecase }}</h2>
     @if(faceSnap.location) {
       <p>📍 {{ faceSnap.location }}</p>
@@ -14,19 +15,4 @@
       <span [ngStyle]="{ color: 'rgb(0, ' + faceSnap.snaps + ', 0)' }">🤌 {{ faceSnap.snaps }}</span> 
       <!-- Plus le Snap à de Like, plus le texte devient vert -->
     </p>
-    <p class="average-snaps">Moyenne des Likes : {{ averageSnaps | number: '1.0-1' }}</p>
-      <!-- Affichage si le FaceSnap est au-dessus ou en-dessous de la moyenne -->
-      <p *ngIf="isAboveAverage(faceSnap.snaps)">
-        🟢 Ce FaceSnap est au-dessus de la moyenne !
-      </p>
-      <p *ngIf="isBelowAverage(faceSnap.snaps)">
-        🔴 Ce FaceSnap est en-dessous de la moyenne.
-      </p>
-      <p *ngIf="isEqualAverage(faceSnap.snaps)">
-        ⚪ Ce FaceSnap est exactement dans la moyenne.
-      </p>
-      <div>
-        <button (click)="onViewFaceSnap()">VIEW</button>
-      </div>
-      
 </div>

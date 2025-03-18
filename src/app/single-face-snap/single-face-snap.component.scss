@@ -1,0 +1,65 @@
+.face-snap-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centre le contenu verticalement */
+  align-items: center; /* Centre le contenu horizontalement */
+  text-align: center; /* Centre le texte */
+  
+  width: 60%; /* Réduit la largeur pour éviter que le contenu soit trop étalé */
+  max-width: 500px; /* Empêche la carte de devenir trop large */
+  margin: 50px auto; /* Centre horizontalement sur la page */
+  padding: 20px;
+  box-shadow: lightgray 4px 4px 20px;
+  border-radius: 10px;
+  background-color: white; /* Ajoute un fond blanc pour contraster */
+}
+
+img {
+  width: 100%; /* Image prend toute la largeur de la carte */
+  max-width: 300px; /* Pour éviter qu'elle ne devienne trop grande */
+  height: auto;
+  border-radius: 8px;
+}
+
+button {
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 16px;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
+  box-shadow: 2px 2px 5px lightgray;
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+button:active {
+  background-color: #3d8b40;
+  box-shadow: 0 0 5px lightgray;
+}
+
+/* Centrage du bouton BACK */
+.btn {
+  margin-bottom: 20px;
+  text-decoration: none;
+  display: inline-block;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #ff4b5c;
+  color: white;
+  box-shadow: 2px 2px 5px lightgray;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+  background-color: #e04353;
+}
+
+.btn:active {
+  box-shadow: 0 0 5px lightgray;
+}
