@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { FaceSnap } from "../models/face-snap";
+import { SnapType } from "../models/snap-type.type";
 
 @Injectable({
     providedIn: 'root'
@@ -151,7 +152,7 @@ export class FaceSnapsService {
         ];
 
         getFaceSnaps(): FaceSnap[] {
-            return [...this.faceSnaps];
+            return [...this.faceSnaps]; // on retourne une copie du tableau pour éviter de modifier l'original
         }
         calculateAverageSnaps(): number {
             if (this.faceSnaps.length > 0) {
@@ -161,6 +162,14 @@ export class FaceSnapsService {
                 return 0;
             }
         }
+
+        snapFaceSnapById(faceSnapId: string, snapType: SnapType): void {
+            const foundFaceSnap = this.faceSnaps.find(faceSnap => faceSnap.id === faceSnapId);
+            if (!foundFaceSnap) {
+              throw new Error('FaceSnap not found!');
+            }
+            foundFaceSnap.snap(snapType);
+         }
 }
 
 
