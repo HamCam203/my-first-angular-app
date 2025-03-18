@@ -8,27 +8,32 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
-
-body {
-    background: url('../assets/logo.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: white; /* Changer la couleur du texte pour améliorer la lisibilité */
-    text-align: center;
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
 }
 
-/* HEADER */
-header {
-    background: url('https://source.unsplash.com/1600x900/?books,library') no-repeat center center/cover;
+body {
+    background: url('../assets/logo.jpg') no-repeat center center;
+    background-size: cover;
+    height: 100vh;  /* Assure que le body prend toute la hauteur de la fenêtre */
+}
+
+
+/* div */
+div {
     color: black;
     padding: 100px 20px;
 }
 
-header h1 {
+div h1 {
     font-size: 2.8rem;
     margin-bottom: 10px;
 }
 
-header p {
+div p {
     font-size: 1.2rem;
     margin-bottom: 20px;
 }
@@ -48,12 +53,3 @@ header p {
     background-color: #cc5200;
 }
 
-
-
-/* FOOTER */
-footer {
-    padding: 20px;
-    background-color: #222;
-    color: white;
-    margin-top: 20px;
-}
