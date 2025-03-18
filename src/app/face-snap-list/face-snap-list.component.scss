@@ -1,0 +1,8 @@
+.snaps-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); // 5 colonnes
+    gap: 20px; // Espacement entre les cartes
+    padding: 20px;
+    justify-content: center;
+  }
+  

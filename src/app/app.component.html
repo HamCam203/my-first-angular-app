@@ -1,13 +1,2 @@
-<h1>Moyenne des Likes : {{ averageSnaps | number: '1.0-1' }}</h1>
-<div class="snaps-container">
-    @for (faceSnap of faceSnaps; track faceSnap.title) {
-        <app-face-snap 
-        [faceSnap]="faceSnap" 
-        [allFaceSnaps]="faceSnaps"
-        [averageSnaps]="averageSnaps"
-        (snapUpdated)="onSnapUpdated()">
-    </app-face-snap>
-      }
-</div>
-
-
+<app-header/>
+<app-face-snap-list/>
