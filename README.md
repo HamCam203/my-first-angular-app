@@ -1,7 +1,7 @@
 # FaceSnap 📸💚 - Angular Project
 
 ## 📝 Description
-FaceSnap is an Angular application that allows users to discover, like, and explore a gallery of photos called "FaceSnaps". Each FaceSnap can be liked, and the application displays the number of likes for each photo. The main goal of the project is to understand the interaction with dynamic data in an Angular environment.
+FaceSnap is an Angular FrontEnd Project that allows users to discover, like, and explore a gallery of photos called "FaceSnaps". Each FaceSnap can be liked, and the application displays the number of likes for each photo. The main goal of the project is to understand the interaction with dynamic data in an Angular environment.
 
 ## Features
 
